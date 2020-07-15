@@ -29,7 +29,7 @@
     3. Executing the Plan
 </h2>
 
-* 
+* Created Item class that has attributes for quantity, name, price, and booleans for whether the basic/imported taxes are applicable
 
 <h2>
     4. Reflection / Refactor
