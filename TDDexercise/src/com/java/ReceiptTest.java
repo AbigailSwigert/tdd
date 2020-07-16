@@ -7,6 +7,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class ReceiptTest {
 
     @Test
+    public void GivenNullShoppingBasketGenerateReceiptReturnsNull() {
+        // arrange
+        Item[] basket = null;
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        // assert
+        assertNull(receipt);
+    }
+
+    @Test
     public void GivenEmptyShoppingBasketGenerateReceiptReturnsNonNull() {
         // arrange
         Item[] basket = new Item[]{};
