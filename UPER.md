@@ -29,7 +29,9 @@
     3. Executing the Plan
 </h2>
 
-* Created Item class that has attributes for quantity, name, price, and booleans for whether the basic/imported taxes are applicable
+* Created Item class, Receipt class, ReceiptGenerator class, and ReceiptGeneratorTest class
+* Began making tests for empty carts
+* Began making tests for carts with single items
 
 <h2>
     4. Reflection / Refactor
