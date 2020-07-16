@@ -15,11 +15,11 @@ public class ReceiptGenerator {
     }
 
     private static double calcTotalDue(Item[] basket) {
-        double totalOfItems = 0.0;
+        double totalDue = 0.0;
         for (Item item: basket) {
-            totalOfItems += (item.price);
+            totalDue += (item.price);
         }
-        return totalOfItems + calcTotalTax(basket);
+        return totalDue;
     }
 
     private static double calcTotalTax(Item[] basket) {

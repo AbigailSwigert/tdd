@@ -11,7 +11,7 @@ public class Item {
         if (isTaxExempt) {
             this.taxRate = 0;
         } else {
-            this.taxRate = 1.10;
+            this.taxRate = 0.10;
         }
     }
 }
