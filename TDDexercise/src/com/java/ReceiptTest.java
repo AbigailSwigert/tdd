@@ -92,16 +92,16 @@ class ReceiptTest {
         assertEquals(taxExemptItem.price, receipt.totalDue);
     }
 
-//    @Test
-//    public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo10PercentOfItemPrice() {
-//        // arrange
-//        Item taxableItem = new Item(1.00);
-//        Item[] basket = new Item[]{taxableItem};
-//
-//        // act
-//        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
-//
-//        // assert
-//        assertEquals(1.10, receipt.totalTax);
-//    }
+    @Test
+    public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo10PercentOfItemPrice() {
+        // arrange
+        Item taxableItem = new Item(1.00);
+        Item[] basket = new Item[]{taxableItem};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        // assert
+        assertEquals(1.10, receipt.totalTax);
+    }
 }
