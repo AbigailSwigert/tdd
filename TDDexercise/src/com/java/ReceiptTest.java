@@ -169,4 +169,19 @@ class ReceiptTest {
         // assert
         assertEquals(1.15, receipt.totalDue);
     }
+
+    @Test
+    public void Given3TaxableItemsInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo15PercentOfAllItemPrices() {
+        // arrange
+        Item taxableItem1 = new Item(1.00, false, false);
+        Item taxableItem2 = new Item(1.50, false, false);
+        Item taxableItem3 = new Item(1.25, false, false);
+        Item[] basket = new Item[]{taxableItem1, taxableItem2, taxableItem3};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        // assert
+        assertEquals(0.375, receipt.totalTax);
+    }
 }
