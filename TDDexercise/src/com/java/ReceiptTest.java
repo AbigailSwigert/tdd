@@ -69,7 +69,7 @@ class ReceiptTest {
     @Test // Come back to this test
     public void Given1TaxExemptItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo0() {
         // arrange
-        Item taxExemptItem = new Item(1.00, true);
+        Item taxExemptItem = new Item(1.00, true, false);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -82,7 +82,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxExemptItemInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToItemPrice() {
         // arrange
-        Item taxExemptItem = new Item(1.00, true);
+        Item taxExemptItem = new Item(1.00, true, false);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -95,7 +95,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo10PercentOfItemPrice() {
         // arrange
-        Item taxableItem = new Item(1.00, false);
+        Item taxableItem = new Item(1.00, false, false);
         Item[] basket = new Item[]{taxableItem};
 
         // act
@@ -108,7 +108,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToItemPriceAfterTax() {
         // arrange
-        Item taxableItem = new Item(1.00, false);
+        Item taxableItem = new Item(1.00, false, false);
         Item[] basket = new Item[]{taxableItem};
 
         // act
@@ -121,13 +121,13 @@ class ReceiptTest {
     @Test
     public void Given1TaxExemptImportedItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo5PercentOfItemPrice() {
         // arrange
-        Item taxableItem = new Item(1.00, true);
+        Item taxableItem = new Item(1.00, true, true);
         Item[] basket = new Item[]{taxableItem};
 
         // act
         Receipt receipt = ReceiptGenerator.generateReceipt(basket);
 
         // assert
-        assertEquals(1.05, receipt.totalTax);
+        assertEquals(0.05, receipt.totalTax);
     }
 }
