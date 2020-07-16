@@ -17,7 +17,7 @@ public class ReceiptGenerator {
     private static double calcTotalDue(Item[] basket) {
         double totalDue = 0.0;
         for (Item item: basket) {
-            totalDue += (item.price);
+            totalDue += (item.price * item.taxRate) + item.price;
         }
         return totalDue;
     }
