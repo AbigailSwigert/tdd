@@ -66,4 +66,17 @@ class ReceiptTest {
         assertEquals(0, receipt.totalDue);
     }
 
+    @Test // Come back to this test
+    public void Given1TaxExemptItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo0() {
+        // arrange
+        Item taxExemptItem = new Item(/* todo: make explicitly tax exempt, items are inherently tax exempt currently */);
+        Item[] basket = new Item[]{taxExemptItem};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        //assert
+        assertEquals(0, receipt.totalTax);
+    }
+
 }
