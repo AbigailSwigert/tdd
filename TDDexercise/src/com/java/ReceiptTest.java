@@ -69,7 +69,7 @@ class ReceiptTest {
     @Test // Come back to this test
     public void Given1TaxExemptItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo0() {
         // arrange
-        Item taxExemptItem = new Item(1.00 /* todo: make explicitly tax exempt, items are inherently tax exempt currently */);
+        Item taxExemptItem = new Item(1.00, true);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -82,7 +82,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxExemptItemInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToItemPrice() {
         // arrange
-        Item taxExemptItem = new Item(1.00 /* todo: make explicitly tax exempt, items are inherently tax exempt currently */);
+        Item taxExemptItem = new Item(1.00, true);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -95,7 +95,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo10PercentOfItemPrice() {
         // arrange
-        Item taxableItem = new Item(1.00);
+        Item taxableItem = new Item(1.00, false);
         Item[] basket = new Item[]{taxableItem};
 
         // act

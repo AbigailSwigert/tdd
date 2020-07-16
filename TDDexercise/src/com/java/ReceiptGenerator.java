@@ -25,7 +25,7 @@ public class ReceiptGenerator {
     private static double calcTotalTax(Item[] basket) {
         double totalTax = 0.0;
         for (Item item: basket) {
-            totalTax += (item.price * 1.10);
+            totalTax += (item.price * item.taxRate);
         }
         return totalTax;
     }
