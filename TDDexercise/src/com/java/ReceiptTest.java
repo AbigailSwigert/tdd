@@ -29,4 +29,29 @@ class ReceiptTest {
         //assert
         assertArrayEquals(new Object[]{}, receipt.items);
     }
+
+    @Test
+    public void GivenEmptyShoppingBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo0() {
+        // arrange
+        Item[] basket = new Item[]{};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        //assert
+        assertEquals(0, receipt.totalTax);
+    }
+
+    @Test
+    public void GivenEmptyShoppingBasketGenerateReceiptReturnsReceiptWithTotalDueEqualTo0() {
+        // arrange
+        Item[] basket = new Item[]{};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        //assert
+        assertEquals(0, receipt.totalDue);
+    }
+
 }
