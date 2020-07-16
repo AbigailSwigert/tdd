@@ -244,4 +244,19 @@ class ReceiptTest {
         // assert
         assertEquals(0.1875, receipt.totalTax);
     }
+
+    @Test
+    public void Given3TaxExemptImportedItemsInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToAllItemPricesAfterTax() {
+        // arrange
+        Item taxableItem1 = new Item(1.00, true, true);
+        Item taxableItem2 = new Item(1.50, true, true);
+        Item taxableItem3 = new Item(1.25, true, true);
+        Item[] basket = new Item[]{taxableItem1, taxableItem2, taxableItem3};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        // assert
+        assertEquals(3.9375, receipt.totalDue);
+    }
 }
