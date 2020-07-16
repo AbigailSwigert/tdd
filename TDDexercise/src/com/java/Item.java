@@ -13,6 +13,8 @@ public class Item {
             this.taxRate = 0.05;
         } else if (isTaxExempt){
             this.taxRate = 0.0;
+        } else if(isImported) {
+            this.taxRate = 0.15;
         } else {
             this.taxRate = 0.10;
         }
