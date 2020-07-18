@@ -5,8 +5,10 @@ public class Item {
     double taxRate;
     boolean isTaxExempt;
     boolean isImported;
+    String name;
 
-    public Item(double price, boolean isTaxExempt, boolean isImported) {
+    public Item(String name, double price, boolean isTaxExempt, boolean isImported) {
+        this.name = name;
         this.price = price;
         this.isTaxExempt = isTaxExempt;
         if (isTaxExempt && isImported) {

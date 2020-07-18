@@ -69,7 +69,7 @@ class ReceiptTest {
     @Test // Come back to this test
     public void Given1TaxExemptItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo0() {
         // arrange
-        Item taxExemptItem = new Item(1.00, true, false);
+        Item taxExemptItem = new Item("Item", 1.00, true, false);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -82,7 +82,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxExemptItemInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToItemPrice() {
         // arrange
-        Item taxExemptItem = new Item(1.00, true, false);
+        Item taxExemptItem = new Item("Item", 1.00, true, false);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -95,7 +95,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo10PercentOfItemPrice() {
         // arrange
-        Item taxableItem = new Item(1.00, false, false);
+        Item taxableItem = new Item("Item", 1.00, false, false);
         Item[] basket = new Item[]{taxableItem};
 
         // act
@@ -108,7 +108,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToItemPriceAfterTax() {
         // arrange
-        Item taxableItem = new Item(1.00, false, false);
+        Item taxableItem = new Item("Item", 1.00, false, false);
         Item[] basket = new Item[]{taxableItem};
 
         // act
@@ -121,7 +121,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxExemptImportedItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo5PercentOfItemPrice() {
         // arrange
-        Item taxExemptItem = new Item(1.00, true, true);
+        Item taxExemptItem = new Item("Item", 1.00, true, true);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -134,7 +134,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxExemptImportedItemInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToItemPriceAfterTax() {
         // arrange
-        Item taxExemptItem = new Item(1.00, true, true);
+        Item taxExemptItem = new Item("Item", 1.00, true, true);
         Item[] basket = new Item[]{taxExemptItem};
 
         // act
@@ -147,7 +147,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableImportedItemInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo15PercentOfItemPrice() {
         // arrange
-        Item taxableImportedItem = new Item(1.00, false, true);
+        Item taxableImportedItem = new Item("Item", 1.00, false, true);
         Item[] basket = new Item[]{taxableImportedItem};
 
         // act
@@ -160,7 +160,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableImportedItemInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToItemPriceAfterTax() {
         // arrange
-        Item taxableImportedItem = new Item(1.00, false, true);
+        Item taxableImportedItem = new Item("Item", 1.00, false, true);
         Item[] basket = new Item[]{taxableImportedItem};
 
         // act
@@ -173,9 +173,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxableItemsInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo10PercentOfAllItemPrices() {
         // arrange
-        Item taxableItem1 = new Item(1.00, false, false);
-        Item taxableItem2 = new Item(1.50, false, false);
-        Item taxableItem3 = new Item(1.25, false, false);
+        Item taxableItem1 = new Item("Item", 1.00, false, false);
+        Item taxableItem2 = new Item("Item", 1.50, false, false);
+        Item taxableItem3 = new Item("Item", 1.25, false, false);
         Item[] basket = new Item[]{taxableItem1, taxableItem2, taxableItem3};
 
         // act
@@ -188,9 +188,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxableItemsInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToAllItemPricesAfterTax() {
         // arrange
-        Item taxableItem1 = new Item(1.00, false, false);
-        Item taxableItem2 = new Item(1.50, false, false);
-        Item taxableItem3 = new Item(1.25, false, false);
+        Item taxableItem1 = new Item("Item", 1.00, false, false);
+        Item taxableItem2 = new Item("Item", 1.50, false, false);
+        Item taxableItem3 = new Item("Item", 1.25, false, false);
         Item[] basket = new Item[]{taxableItem1, taxableItem2, taxableItem3};
 
         // act
@@ -203,9 +203,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxExemptItemsInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo0() {
         // arrange
-        Item taxExemptItem1 = new Item(1.00, true, false);
-        Item taxExemptItem2 = new Item(1.50, true, false);
-        Item taxExemptItem3 = new Item(1.25, true, false);
+        Item taxExemptItem1 = new Item("Item", 1.00, true, false);
+        Item taxExemptItem2 = new Item("Item", 1.50, true, false);
+        Item taxExemptItem3 = new Item("Item", 1.25, true, false);
         Item[] basket = new Item[]{taxExemptItem1, taxExemptItem2, taxExemptItem3};
 
         // act
@@ -218,9 +218,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxExemptItemsInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToAllItemPrices() {
         // arrange
-        Item taxExemptItem1 = new Item(1.00, true, false);
-        Item taxExemptItem2 = new Item(1.50, true, false);
-        Item taxExemptItem3 = new Item(1.25, true, false);
+        Item taxExemptItem1 = new Item("Item", 1.00, true, false);
+        Item taxExemptItem2 = new Item("Item", 1.50, true, false);
+        Item taxExemptItem3 = new Item("Item", 1.25, true, false);
         Item[] basket = new Item[]{taxExemptItem1, taxExemptItem2, taxExemptItem3};
 
         // act
@@ -233,9 +233,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxExemptImportedItemsInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo5PercentOfAllItemPrices() {
         // arrange
-        Item taxExemptImportedItem1 = new Item(1.00, true, true);
-        Item taxExemptImportedItem2 = new Item(1.50, true, true);
-        Item taxExemptImportedItem3 = new Item(1.25, true, true);
+        Item taxExemptImportedItem1 = new Item("Item", 1.00, true, true);
+        Item taxExemptImportedItem2 = new Item("Item", 1.50, true, true);
+        Item taxExemptImportedItem3 = new Item("Item", 1.25, true, true);
         Item[] basket = new Item[]{taxExemptImportedItem1, taxExemptImportedItem2, taxExemptImportedItem3};
 
         // act
@@ -248,9 +248,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxExemptImportedItemsInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToAllItemPricesAfterTax() {
         // arrange
-        Item taxExemptImportedItem1 = new Item(1.00, true, true);
-        Item taxExemptImportedItem2 = new Item(1.50, true, true);
-        Item taxExemptImportedItem3 = new Item(1.25, true, true);
+        Item taxExemptImportedItem1 = new Item("Item", 1.00, true, true);
+        Item taxExemptImportedItem2 = new Item("Item", 1.50, true, true);
+        Item taxExemptImportedItem3 = new Item("Item", 1.25, true, true);
         Item[] basket = new Item[]{taxExemptImportedItem1, taxExemptImportedItem2, taxExemptImportedItem3};
 
         // act
@@ -263,9 +263,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxableImportedItemsInBasketGenerateReceiptReturnsReceiptWithTotalTaxEqualTo15PercentOfAllItemPrices() {
         // arrange
-        Item taxableImportedItem1 = new Item(1.00, false, true);
-        Item taxableImportedItem2 = new Item(1.50, false, true);
-        Item taxableImportedItem3 = new Item(1.25, false, true);
+        Item taxableImportedItem1 = new Item("Item", 1.00, false, true);
+        Item taxableImportedItem2 = new Item("Item", 1.50, false, true);
+        Item taxableImportedItem3 = new Item("Item", 1.25, false, true);
         Item[] basket = new Item[]{taxableImportedItem1, taxableImportedItem2, taxableImportedItem3};
 
         // act
@@ -278,9 +278,9 @@ class ReceiptTest {
     @Test
     public void Given3TaxableImportedItemsInBasketGenerateReceiptReturnsReceiptWithTotalDueEqualToAllItemPricesAfterTax() {
         // arrange
-        Item taxableImportedItem1 = new Item(1.00, false, true);
-        Item taxableImportedItem2 = new Item(1.50, false, true);
-        Item taxableImportedItem3 = new Item(1.25, false, true);
+        Item taxableImportedItem1 = new Item("Item", 1.00, false, true);
+        Item taxableImportedItem2 = new Item("Item", 1.50, false, true);
+        Item taxableImportedItem3 = new Item("Item", 1.25, false, true);
         Item[] basket = new Item[]{taxableImportedItem1, taxableImportedItem2, taxableImportedItem3};
 
         // act
@@ -293,7 +293,7 @@ class ReceiptTest {
     @Test
     public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTaxesRoundedToTheNearestPoint5() {
         // arrange
-        Item taxableItem = new Item(1.25, false, false);
+        Item taxableItem = new Item("Item", 1.25, false, false);
         Item[] basket = new Item[]{taxableItem};
 
         // act
@@ -318,4 +318,18 @@ class ReceiptTest {
         assertEquals("Toy: $15.05\nBook: $13.67\nChocolate Bar: $1.35", receipt.itemPricesAfterTax);
     }
 
+//    @Test
+//    public void GivenInput1GenerateReceiptReturnsReceiptWithOutput1() {
+//        // arrange
+//        Item book = new Item(12.49, true, false);
+//        Item musicCD = new Item(14.99, false, false);
+//        Item chocolateBar = new Item(0.85, true, false);
+//        Item[] basket = new Item[] {book, musicCD, chocolateBar};
+//
+//        // act
+//        ReceiptGenerator.generateReceipt(basket);
+//
+//        // assert
+//
+//    }
 }
