@@ -24,9 +24,11 @@ public class ReceiptGenerator {
 
     private static double calcTotalTax(Item[] basket) {
         double totalTax = 0.0;
+        double roundedTax = 0.0;
         for (Item item: basket) {
             totalTax += (item.price * item.taxRate);
+            roundedTax = Math.round(totalTax * 20.00) / 20.00;
         }
-        return totalTax;
+        return roundedTax;
     }
 }
