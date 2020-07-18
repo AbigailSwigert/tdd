@@ -302,4 +302,20 @@ class ReceiptTest {
         // assert
         assertEquals(0.15, receipt.totalTax);
     }
+
+    @Test
+    public void Given3ItemsInBasketGenerateReceiptReturnReceiptWithAllItemNamesAndPricesAfterTax() {
+        // arrange
+        Item item1 = new Item("Toy", 13.67, false, false); // 15.05
+        Item item2 = new Item("Book", 13.67, true, false); // 13.67
+        Item item3 = new Item("Chocolate Bar", 1.28, true, true); // 1.35
+        Item[] basket = new Item[] {item1, item2, item3};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        // assert
+        assertEquals("Toy: $15.05\nBook: $13.67\nChocolate Bar: $1.35", receipt.itemPricesAfterTax);
+    }
+
 }
