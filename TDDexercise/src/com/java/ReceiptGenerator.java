@@ -17,18 +17,16 @@ public class ReceiptGenerator {
     private static double calcTotalDue(Item[] basket) {
         double totalDue = 0.0;
         for (Item item: basket) {
-            totalDue += (item.price * item.taxRate) + item.price;
+            totalDue += (Math.round((item.price * item.taxRate) * 20.00) / 20.00) + item.price;
         }
-        return totalDue;
+        return Math.round(totalDue * 100.00) / 100.00;
     }
 
     private static double calcTotalTax(Item[] basket) {
         double totalTax = 0.0;
-        double roundedTax = 0.0;
         for (Item item: basket) {
-            totalTax += (item.price * item.taxRate);
-            roundedTax = Math.round(totalTax * 20.00) / 20.00;
+            totalTax += (Math.round((item.price * item.taxRate) * 20.00) / 20.00);
         }
-        return roundedTax;
+        return Math.round(totalTax * 100.00) / 100.00;
     }
 }
