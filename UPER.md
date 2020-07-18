@@ -32,7 +32,11 @@
 * Created Item class, Receipt class, ReceiptGenerator class, and ReceiptGeneratorTest class
 * Began making tests for empty carts
 * Began making tests for carts with single items
+* Made test for carts with multiple items
+* added functionality to print all item prices after tax, total tax, and total due
 
 <h2>
     4. Reflection / Refactor
 </h2>
+
+* I won't really know how I did until I get feedback as I have no idea what constitutes good TDD
