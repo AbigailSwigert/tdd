@@ -197,7 +197,7 @@ class ReceiptTest {
         Receipt receipt = ReceiptGenerator.generateReceipt(basket);
 
         // assert
-        assertEquals(4.125, receipt.totalDue);
+        assertEquals(4.15, receipt.totalDue);
     }
 
     @Test
@@ -257,7 +257,7 @@ class ReceiptTest {
         Receipt receipt = ReceiptGenerator.generateReceipt(basket);
 
         // assert
-        assertEquals(3.9375, receipt.totalDue);
+        assertEquals(3.95, receipt.totalDue);
     }
 
     @Test
@@ -287,7 +287,7 @@ class ReceiptTest {
         Receipt receipt = ReceiptGenerator.generateReceipt(basket);
 
         // assert
-        assertEquals(4.3125, receipt.totalDue);
+        assertEquals(4.3, receipt.totalDue);
     }
 
     @Test
