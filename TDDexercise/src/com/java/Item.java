@@ -6,16 +6,19 @@ public class Item {
     boolean isTaxExempt;
     boolean isImported;
     String name;
+    int quantity;
 
-    public Item(String name, double price, boolean isTaxExempt, boolean isImported) {
+    public Item(int quantity, String name, double price, boolean isTaxExempt, boolean isImported) {
+        this.quantity = quantity;
         this.name = name;
         this.price = price;
         this.isTaxExempt = isTaxExempt;
-        if (isTaxExempt && isImported) {
+        this.isImported = isImported;
+        if (this.isTaxExempt && this.isImported) {
             this.taxRate = 0.05;
-        } else if (isTaxExempt){
+        } else if (this.isTaxExempt){
             this.taxRate = 0.0;
-        } else if(isImported) {
+        } else if(this.isImported) {
             this.taxRate = 0.15;
         } else {
             this.taxRate = 0.10;

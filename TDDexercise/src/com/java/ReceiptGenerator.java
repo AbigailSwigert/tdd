@@ -8,11 +8,12 @@ public class ReceiptGenerator {
         };
         Receipt receipt = new Receipt();
         for (Item item: basket) {
-            receipt.itemPricesAfterTax = receipt.itemPricesAfterTax.concat(item.name + ": $" + calcItemPriceAfterTax(item) + "\n");
+            receipt.itemPricesAfterTax = receipt.itemPricesAfterTax.concat(item.quantity + " " + item.name + ": $" + calcItemPriceAfterTax(item) + "\n");
         }
         System.out.println(receipt.itemPricesAfterTax);
         receipt.totalDue = calcTotalDue(basket);
         receipt.totalTax = calcTotalTax(basket);
+        System.out.println("Sales Taxes: $" + receipt.totalTax + " Total: $" + receipt.totalDue);
         return receipt;
     }
 
@@ -27,12 +28,13 @@ public class ReceiptGenerator {
     private static double calcTotalTax(Item[] basket) {
         double totalTax = 0.0;
         for (Item item: basket) {
-            totalTax += (Math.round((item.price * item.taxRate) * 20.00) / 20.00);
+            totalTax += ((Math.round((item.price * item.taxRate) * 20.00) / 20.00) * item.quantity);
         }
         return Math.round(totalTax * 100.00) / 100.00;
     }
 
     private static double calcItemPriceAfterTax(Item item) {
-        return (Math.round((item.price * item.taxRate) * 20.00) / 20.00) + item.price;
+        double itemPriceAfterTax = ((Math.round((item.price * item.taxRate) * 20.00) / 20.00) + item.price) * item.quantity;
+        return Math.round(itemPriceAfterTax * 100.00) / 100.00;
     }
 }
