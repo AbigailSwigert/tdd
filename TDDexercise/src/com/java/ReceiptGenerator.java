@@ -28,13 +28,13 @@ public class ReceiptGenerator {
     private static double calcTotalTax(Item[] basket) {
         double totalTax = 0.0;
         for (Item item: basket) {
-            totalTax += ((Math.round((item.price * item.taxRate) * 20.00) / 20.00) * item.quantity);
+            totalTax += ((Math.ceil((item.price * item.taxRate) * 20.00) / 20.00) * item.quantity);
         }
         return Math.round(totalTax * 100.00) / 100.00;
     }
 
     private static double calcItemPriceAfterTax(Item item) {
-        double itemPriceAfterTax = ((Math.round((item.price * item.taxRate) * 20.00) / 20.00) + item.price) * item.quantity;
+        double itemPriceAfterTax = ((Math.ceil((item.price * item.taxRate) * 20.00) / 20.00) + item.price) * item.quantity;
         return Math.round(itemPriceAfterTax * 100.00) / 100.00;
     }
 }
