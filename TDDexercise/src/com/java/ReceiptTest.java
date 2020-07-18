@@ -289,4 +289,17 @@ class ReceiptTest {
         // assert
         assertEquals(4.3125, receipt.totalDue);
     }
+
+    @Test
+    public void Given1TaxableItemInBasketGenerateReceiptReturnsReceiptWithTaxesRoundedToTheNearestPoint5() {
+        // arrange
+        Item taxableItem = new Item(1.25, false, false);
+        Item[] basket = new Item[]{taxableItem};
+
+        // act
+        Receipt receipt = ReceiptGenerator.generateReceipt(basket);
+
+        // assert
+        assertEquals(0.15, receipt.totalTax);
+    }
 }
