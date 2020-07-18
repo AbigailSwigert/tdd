@@ -8,12 +8,12 @@ public class ReceiptGenerator {
         };
         Receipt receipt = new Receipt();
         for (Item item: basket) {
-            receipt.itemPricesAfterTax = receipt.itemPricesAfterTax.concat(item.quantity + " " + item.name + ": $" + calcItemPriceAfterTax(item) + "\n");
+            receipt.itemPricesAfterTax = receipt.itemPricesAfterTax.concat("\n" + item.quantity + " " + item.name + ": $" + calcItemPriceAfterTax(item));
         }
         System.out.println(receipt.itemPricesAfterTax);
         receipt.totalDue = calcTotalDue(basket);
         receipt.totalTax = calcTotalTax(basket);
-        System.out.println("Sales Taxes: $" + receipt.totalTax + " Total: $" + receipt.totalDue);
+        System.out.println("Sales Taxes: $" + receipt.totalTax + " Total: $" + receipt.totalDue + "\n");
         return receipt;
     }
 
