@@ -1,6 +1,10 @@
 package com.java;
 
+import java.text.DecimalFormat;
+
 public class ReceiptGenerator {
+
+    private static DecimalFormat money = new DecimalFormat("#0.00");
 
     public static Receipt generateReceipt(Item[] basket) {
         if(basket == null) {
@@ -8,12 +12,12 @@ public class ReceiptGenerator {
         };
         Receipt receipt = new Receipt();
         for (Item item: basket) {
-            receipt.itemPricesAfterTax = receipt.itemPricesAfterTax.concat("\n" + item.quantity + " " + item.name + ": $" + calcItemPriceAfterTax(item));
+            receipt.itemPricesAfterTax = receipt.itemPricesAfterTax.concat("\n" + item.quantity + " " + item.name + ": $" + money.format(calcItemPriceAfterTax(item)));
         }
         System.out.println(receipt.itemPricesAfterTax);
         receipt.totalDue = calcTotalDue(basket);
         receipt.totalTax = calcTotalTax(basket);
-        System.out.println("Sales Taxes: $" + receipt.totalTax + " Total: $" + receipt.totalDue + "\n");
+        System.out.println("Sales Taxes: $" + money.format(receipt.totalTax) + " Total: $" + money.format(receipt.totalDue) + "\n");
         return receipt;
     }
 
